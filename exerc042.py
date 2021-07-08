@@ -3,3 +3,18 @@
 #EQUILÁTERO: todos os lados iguais;
 #ISÓSCELES: dois lados iguais;
 #ESCALENO: Todos os lados diferentes
+
+n1 = float(input('Primeiro segmento: '))
+n2 = float(input('Segundo segmento: '))
+n3 = float(input('Terceiro segmento: '))
+
+if n1 + n2 >= n3 and n2 + n3 >= n1 and n3 + n1 >= n2:
+    print('Podem formar um triângulo ', end='')
+    if n1 == n2 == n3:
+        print('EQUILÁTERO')
+    elif n1 != n2 != n3 != n1:
+        print('ESCALENO!')
+    else:
+        print('ISÓSCELES!')
+else:
+    print('Não podem formar um triângulo.')

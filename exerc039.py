@@ -6,11 +6,14 @@
 #Seu programa também deverá mostrar o tempo que falta ou que passou do prazo.
 import datetime
 
+anoAtual = datetime.date.today().year
 anoNascimento = int(input('Informe Ano Nascimento: '))
 
-if (anoNascimento - datetime.date.year) < 18:
-    print('Ainda falta {} meses para se alistar!' .format((anoNascimento - datetime.date.year) - 18))
-elif anoNascimento - datetime.date.year == 18:
-    print('É a hora de se alistar.')
+if (anoAtual - anoNascimento) < 18:
+    print('Ainda falta(m) {} ano(s) para se alistar!' .format(18 - (anoAtual - anoNascimento)))
+    print('O alistamento deverá ser feito em {}.' .format((anoAtual + 18) - (anoAtual - anoNascimento)))
+elif (anoAtual - anoNascimento) == 18:
+    print('É ano de se alistar.')
 else:
-    print('Já passou {} tempo do alistamento' .format(anoNascimento - datetime.date.year))
+    print('Já passou {} ano do seu alistamento.' .format((anoAtual - anoNascimento) - 18))
+    print('O alistamento deveria ser feito em {}.'.format((anoAtual + 18) - (anoAtual - anoNascimento)))
