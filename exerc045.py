@@ -13,15 +13,15 @@ jogador = int(input('Escolha uma opção abaixo \n'
                     'Opção: '))
 print('Jo')
 sleep(1)
-print('Ken')
+print('Kem')
 sleep(1)
 print('Po!!!')
 sleep(1)
 
-print('-=' * 12)
+print('-=' * 15)
 print('Computador escolheu [ {} ] \n'
       'Jogador escolheu [ {} ]' .format(itens[computador], itens[jogador]))
-print('-=' * 12)
+print('-=' * 15)
 
 if computador == 0:
     if jogador == 0:
