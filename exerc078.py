@@ -4,7 +4,7 @@
 #as sua respectivas posições na lista.
 valores = []
 for v in range(0, 5):
-    valores.append(int(input(f'Digiver um valor para posicão {v}: ')))
+    valores.append(int(input(f'Digite um valor para posicão {v}: ')))
     if v == 0:
         menor = maior = valores[v]
     else:
