@@ -13,6 +13,7 @@ while True:
     soma += preco
     if menor == 0:
         menor = preco
+        nomeB = nome
     else:
         if preco < menor:
             nomeB = nome
