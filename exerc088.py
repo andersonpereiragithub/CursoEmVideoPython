@@ -9,9 +9,10 @@ print(f'      JOGA NA MEGA SENA     ')
 print('-' * 30)
 lista = []
 listaFinal = []
-qtdeNum = 1 + int(input('Quantos jogos serão gerados? '))
+qtdeNum = int(input('Quantos jogos serão gerados? '))
+print('-=' * 3, f'   SORTEANDO {qtdeNum} JOGOS   ',  '-=' * 3)
 tot = 0
-for n in range(1, qtdeNum):
+for n in range(1, qtdeNum + 1):
     while tot < 6:
         num = randint(1, 60)
         if num not in lista:
@@ -24,3 +25,4 @@ for n in range(1, qtdeNum):
 for pos, l in enumerate(listaFinal):
     print(f'Jogo nº {pos + 1}: {l}')
     sleep(1)
+print('-=' * 5, f'< BOA SORTE! >', '-=' * 5)
