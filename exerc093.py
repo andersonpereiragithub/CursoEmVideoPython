@@ -20,5 +20,5 @@ for k, v in statusJogador.items():
 print('-=' *20)
 print(f'O jogador {statusJogador["nome"]} participou de {len(statusJogador["gols"])} jogos.')
 for i, v in enumerate(statusJogador['gols']):
-    print(f'    => Na partida {i + 1}ª, fez {v} gols')
+    print(f'    => Na {i + 1}ª partida, fez {v} gols')
 print(f'Foi um total de {statusJogador["total_gols"]} gols')
