@@ -9,11 +9,18 @@ if not arquivoExiste(arq):
 
 
 while True:
-    resp = menu(['Ver pessoas cadastradas', 'Cadastrar nova Pessoa', 'Sair do Sistema'])
+    resp = menu(['Ver pessoas cadastradas', 'Cadastrar nova Pessoa', 'Deletar Pessoa', 'Sair do Sistema'])
     if resp == 1:
         lerArquivo(arq)
     elif resp == 2:
-        print('')
+        cabecalho('NOVO CADASTRO')
+        nome = str(input('Nome: '))
+        idade = leiaInt('Idade: ')
+        cadastrar(arq, nome, idade)
+    elif resp == 3:
+        cabecalho('QUEM DESEJA DELETAR?')
+        nome = str(input('Nome: '))
+        deletarCadastro(arq, nome)
     elif resp == 3:
         print('Saindo do sistema... Até logo!')
         break
