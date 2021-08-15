@@ -21,7 +21,7 @@ while True:
         cabecalho('QUEM DESEJA DELETAR?')
         nome = str(input('Nome: '))
         deletarCadastro(arq, nome)
-    elif resp == 3:
+    elif resp == 4:
         print('Saindo do sistema... Até logo!')
         break
     else:

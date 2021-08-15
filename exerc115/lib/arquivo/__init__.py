@@ -50,9 +50,30 @@ def cadastrar(arq, nome='desconhecido', idade=0):
             a.close()
 
 
-def deletarCadastro(arq, nome):
-    try:
-        a = open(arq, 'rt')
-        print(a)
-    except:
-        print('ERRO ao ler o arquivo!')
+def verificaCadastro(arq, pessoa):
+    a = open(arq, 'r')
+    p = False
+    for valor in a:
+        n = valor.split(';')
+        if pessoa == n[0]:
+            p = True
+    return p
+
+
+def deletarCadastro(arq, pessoa):
+    existe = verificaCadastro(arq, pessoa)
+    if existe:
+        a = open(arq, 'r')
+        lista = []
+        for valor in a:
+            n = valor.split(';')
+            if n[0] != pessoa:
+               lista.append(valor)
+        a.close()
+        b = open(arq, 'w')
+        for v in lista:
+            b.write(f'{v}')
+        b.close()
+        print(f'{pessoa} deletada com sucesso!')
+    else:
+        print(f'{pessoa} não encontrada!')
