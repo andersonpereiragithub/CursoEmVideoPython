@@ -1,4 +1,5 @@
 from exerc115.lib.interface import *
+from operator import itemgetter, attrgetter
 
 
 def arquivoExiste(nome):
@@ -19,21 +20,6 @@ def criarArquivo(nome):
         print('Houve um ERRO na criação do arquivo!')
     else:
         print(f'Arquivo {nome} criado com sucesso!')
-
-
-def lerArquivo(nome):
-    try:
-        a = open(nome, 'rt')
-    except:
-        print('Erro ao ler o arquivo!')
-    else:
-        cabecalho('PESSOAS CADASTRADAS')
-        for linha in a:
-            dado = linha.split(';')
-            dado[1] = dado[1].replace('\n', '')
-            print(f'{dado[0]:<30}{dado[1]:>3} anos')
-    finally:
-        a.close()
 
 
 def cadastrar(arq, nome='desconhecido', idade=0):
@@ -77,3 +63,33 @@ def deletarCadastro(arq, pessoa):
         print(f'{pessoa} deletada com sucesso!')
     else:
         print(f'{pessoa} não encontrada!')
+
+
+def lista(arq, ordenado=0):
+    linhas = open(arq, 'r')
+    dictPessoas = []
+    listaPessoas = []
+    for lin in linhas:
+        dado = lin.split(';')
+        dictPessoas.append(dado[0])
+        dictPessoas.append(dado[1].replace('\n', ''))
+        listaPessoas.append(dictPessoas[:])
+        dictPessoas.clear()
+    if ordenado == 1:
+        listaPessoas.sort()
+    elif ordenado == 2:
+        sorted(listaPessoas, key=attrgetter())
+    else:
+        linhas.close()
+    lerArquivo(listaPessoas)
+
+
+def imprimir(lista):
+    for t in lista:
+        print(t)
+
+
+def lerArquivo(lista):
+    cabecalho('LISTA PESSOAS CADASTRADAS')
+    for dado in lista:
+        print(f'{dado[0]:<30}{dado[1]:>3} anos')

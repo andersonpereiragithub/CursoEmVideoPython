@@ -31,7 +31,10 @@ def menu(lista):
     cabecalho('= MENU PRINCIPAL =')
     c = 1
     for item in lista:
-        print(f'\033[33m{c}\033[m - \033[34m{item}\033[m')
+        if c == len(lista):
+            print(f'\033[33m{0}\033[m - \033[34m{item}\033[m')
+        else:
+            print(f'\033[33m{c}\033[m - \033[34m{item}\033[m')
         c += 1
     print(linha())
     opc = leiaInt('\033[32mSua Opção: \033[m')

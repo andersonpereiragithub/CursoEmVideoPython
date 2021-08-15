@@ -1,5 +1,7 @@
-carlos;44
-gustavo;41
+Sandoval;92
+Ana;33
+Claudio;43
 Anderson;48
-Dilma;72
-Maurício;75
+Bia;23
+Lucas;11
+Xanda;49
