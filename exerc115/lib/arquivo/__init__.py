@@ -1,5 +1,5 @@
 from exerc115.lib.interface import *
-from operator import itemgetter, attrgetter
+from operator import itemgetter
 
 
 def arquivoExiste(nome):
@@ -54,7 +54,7 @@ def deletarCadastro(arq, pessoa):
         for valor in a:
             n = valor.split(';')
             if n[0] != pessoa:
-               lista.append(valor)
+                lista.append(valor)
         a.close()
         b = open(arq, 'w')
         for v in lista:
@@ -67,29 +67,26 @@ def deletarCadastro(arq, pessoa):
 
 def lista(arq, ordenado=0):
     linhas = open(arq, 'r')
-    dictPessoas = []
+    dictPessoas = {}
     listaPessoas = []
     for lin in linhas:
         dado = lin.split(';')
-        dictPessoas.append(dado[0])
-        dictPessoas.append(dado[1].replace('\n', ''))
-        listaPessoas.append(dictPessoas[:])
+        dictPessoas['nome'] = dado[0]
+        dictPessoas['idade'] = dado[1].replace('\n', '')
+        listaPessoas.append(dictPessoas.copy())
         dictPessoas.clear()
+    linhas.close()
     if ordenado == 1:
-        listaPessoas.sort()
+        lista = sorted(listaPessoas, key=itemgetter('nome'))
+        lerArquivo(lista)
     elif ordenado == 2:
-        sorted(listaPessoas, key=attrgetter())
+        lista = sorted(listaPessoas, key=itemgetter('idade'))
+        lerArquivo(lista)
     else:
-        linhas.close()
-    lerArquivo(listaPessoas)
-
-
-def imprimir(lista):
-    for t in lista:
-        print(t)
+        lerArquivo(listaPessoas)
 
 
 def lerArquivo(lista):
-    cabecalho('LISTA PESSOAS CADASTRADAS')
+    cabecalho(f'LISTA DAS {len(lista)} PESSOAS CADASTRADAS')
     for dado in lista:
-        print(f'{dado[0]:<30}{dado[1]:>3} anos')
+        print(f'{dado["nome"]:<30}{dado["idade"]:>3} anos')

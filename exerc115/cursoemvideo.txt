@@ -5,3 +5,6 @@ Anderson;48
 Bia;23
 Lucas;11
 Xanda;49
+Gilberto;31
+Carmem;99
+João;39
